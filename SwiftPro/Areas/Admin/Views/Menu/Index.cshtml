@@ -1,0 +1,70 @@
+@model IEnumerable<SwiftPro.Models.NavigationMenuItem>
+
+@{
+    ViewData["Title"] = "Menu Builder";
+}
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Navigation</span>
+            <h2 class="h4 mb-0">Menu Builder</h2>
+        </div>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-lg"></i>
+            Add Menu Item
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table admin-table align-middle">
+            <thead>
+                <tr>
+                    <th>Order</th>
+                    <th>Label</th>
+                    <th>URL</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.SortOrder</td>
+                        <td>
+                            <strong>@item.Label</strong>
+                            @if (!string.IsNullOrWhiteSpace(item.IconClass))
+                            {
+                                <div class="small text-secondary">@item.IconClass</div>
+                            }
+                        </td>
+                        <td><code>@item.Url</code></td>
+                        <td>@(item.IsButton ? "Button" : "Link")</td>
+                        <td>
+                            <span class="badge @(item.IsActive ? "text-bg-success" : "text-bg-secondary")">
+                                @(item.IsActive ? "Active" : "Hidden")
+                            </span>
+                        </td>
+                        <td>
+                            <div class="admin-actions">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-pencil"></i>
+                                    Edit
+                                </a>
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Delete this menu item?');">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-trash"></i>
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

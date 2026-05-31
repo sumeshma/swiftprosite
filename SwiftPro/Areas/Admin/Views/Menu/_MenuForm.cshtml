@@ -1,0 +1,60 @@
+@model SwiftPro.Models.NavigationMenuItem
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Navigation</span>
+            <h2 class="h4 mb-0">@ViewData["Title"]</h2>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary">Back to Menu</a>
+    </div>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <div class="admin-form-grid">
+            <div>
+                <label asp-for="Label" class="form-label"></label>
+                <input asp-for="Label" class="form-control" placeholder="About" />
+                <span asp-validation-for="Label" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Url" class="form-label"></label>
+                <input asp-for="Url" class="form-control" placeholder="/Company/About" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="IconClass" class="form-label">Icon Class</label>
+                <input asp-for="IconClass" class="form-control" placeholder="bi bi-stars" />
+            </div>
+            <div>
+                <label asp-for="SortOrder" class="form-label">Sort Order</label>
+                <input asp-for="SortOrder" class="form-control" type="number" />
+            </div>
+            <div class="form-check">
+                <input asp-for="IsButton" class="form-check-input" />
+                <label asp-for="IsButton" class="form-check-label">Render as button</label>
+            </div>
+            <div class="form-check">
+                <input asp-for="OpenInNewTab" class="form-check-input" />
+                <label asp-for="OpenInNewTab" class="form-check-label">Open in new tab</label>
+            </div>
+            <div class="form-check full">
+                <input asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label">Active</label>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-save"></i>
+                Save Menu Item
+            </button>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

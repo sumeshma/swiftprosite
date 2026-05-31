@@ -1,0 +1,107 @@
+@model SwiftPro.Models.ViewModels.ContactFormViewModel
+@using System.Globalization
+@using PhoneNumbers
+
+@{
+    Layout = "_Layout";
+    var regionNames = CultureInfo
+        .GetCultures(CultureTypes.SpecificCultures)
+        .Select(culture => new RegionInfo(culture.Name))
+        .GroupBy(region => region.TwoLetterISORegionName)
+        .ToDictionary(group => group.Key, group => group.First().EnglishName);
+    var phoneNumberUtil = PhoneNumberUtil.GetInstance();
+    var countryCodes = phoneNumberUtil
+        .GetSupportedRegions()
+        .Select(region =>
+        {
+            var country = regionNames.TryGetValue(region, out var name) ? name : region;
+            var code = $"+{phoneNumberUtil.GetCountryCodeForRegion(region)}";
+            return new { Code = code, Label = $"{country} ({code})", Country = country };
+        })
+        .OrderBy(x => x.Country)
+        .ToList();
+    var countries = countryCodes
+        .Select(x => x.Country)
+        .Concat(new[] { "Kosovo", "Palestine" })
+        .Distinct()
+        .OrderBy(x => x)
+        .ToList();
+}
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="choose-card p-4 p-md-5">
+                    @if (TempData["SuccessMessage"] is string successMessage)
+                    {
+                        <div class="alert alert-success">@successMessage</div>
+                    }
+
+                    @if (ViewData["PageContent"] is string pageContent && !string.IsNullOrWhiteSpace(pageContent))
+                    {
+                        @Html.Raw(pageContent)
+                    }
+                    else
+                    {
+                        <h1 class="section-title mb-2">Contact Us</h1>
+                        <p class="text-secondary mb-4">Tell us about your idea, challenge, or project goals. We will respond quickly.</p>
+                    }
+
+                    <form asp-action="Index" asp-controller="Contact" method="post" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="Name" class="form-label"></label>
+                                <input asp-for="Name" class="form-control form-control-lg" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Email" class="form-label"></label>
+                                <input asp-for="Email" class="form-control form-control-lg" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="CountryCode" class="form-label">Country Code</label>
+                                <select asp-for="CountryCode" class="form-select form-select-lg">
+                                    @foreach (var item in countryCodes)
+                                    {
+                                        <option value="@item.Code">@item.Label</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="CountryCode" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-8">
+                                <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                                <input asp-for="PhoneNumber" class="form-control form-control-lg" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Country" class="form-label"></label>
+                                <select asp-for="Country" class="form-select form-select-lg">
+                                    <option value="">Select country</option>
+                                    @foreach (var country in countries)
+                                    {
+                                        <option value="@country">@country</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="Country" class="text-danger"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Subject" class="form-label"></label>
+                                <input asp-for="Subject" class="form-control form-control-lg" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+                            <div class="col-12">
+                                <label asp-for="Message" class="form-label"></label>
+                                <textarea asp-for="Message" class="form-control" rows="6"></textarea>
+                                <span asp-validation-for="Message" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary rounded-pill px-4 mt-4">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

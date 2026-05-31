@@ -1,0 +1,126 @@
+@model SwiftPro.Models.ViewModels.HomePageViewModel
+
+@if (Model.Hero == null && Model.Page == null)
+{
+    return;
+}
+
+@{
+    ViewData["Title"] = "SwiftPro Solutions";
+    var useSingleBackground = Model.SiteSetting?.UseSingleHomePageBackground != false;
+    var sectionTransparency = Math.Clamp(Model.SiteSetting?.HomePageSectionTransparency ?? 10, 0, 100);
+    var sectionOverlayOpacity = (100 - sectionTransparency) / 100.0;
+    var homeBackgroundStyle = string.IsNullOrWhiteSpace(Model.SiteSetting?.HeroBackgroundImageUrl)
+        ? $"--home-section-overlay-opacity: {sectionOverlayOpacity:0.##};"
+        : $"--home-page-bg: url('{Model.SiteSetting.HeroBackgroundImageUrl}'); --home-section-overlay-opacity: {sectionOverlayOpacity:0.##};";
+}
+
+@section Head {
+    <link rel="stylesheet"
+          href="~/css/home.css"
+          asp-append-version="true" />
+}
+
+<div class="@(useSingleBackground ? "single-home-page" : null)" style="@homeBackgroundStyle">
+
+<section class="hero-section position-relative overflow-hidden"
+         style="@(!useSingleBackground && !string.IsNullOrWhiteSpace(Model.SiteSetting?.HeroBackgroundImageUrl) ? $"background-image: linear-gradient(135deg, rgba(11, 17, 32, 0.78), rgba(29, 47, 97, 0.74)), url('{Model.SiteSetting.HeroBackgroundImageUrl}');" : null)">
+
+    <div class="container position-relative">
+
+        <div class="row align-items-center min-vh-100 py-5">
+
+            <!-- LEFT CONTENT -->
+
+            <div class="col-lg-7 reveal-up">
+
+                <span class="badge rounded-pill text-bg-light px-3 py-2 mb-3">
+                    @Model.Hero?.BadgeText
+                </span>
+
+                <h1 class="display-4 fw-bold mb-3">
+                    @Model.Hero?.Title
+                </h1>
+
+                <p class="lead text-light-emphasis mb-4">
+                    @Model.Hero?.Subtitle
+                </p>
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    <a class="btn btn-primary btn-lg rounded-pill px-4"
+                           href="@Model.Hero?.PrimaryButtonUrl">
+
+                        @Model.Hero?.PrimaryButtonText
+
+                    </a>
+
+                    <a class="btn btn-outline-light btn-lg rounded-pill px-4"
+                           href="@Model.Hero?.SecondaryButtonUrl">
+
+                        @Model.Hero?.SecondaryButtonText
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT CARD -->
+
+            <div class="col-lg-5 mt-5 mt-lg-0 reveal-up">
+
+                <div class="hero-card glass-card p-4 p-md-5">
+
+                    <h5 class="fw-semibold mb-3">
+                        Why leaders choose SwiftPro
+                    </h5>
+
+                    <ul class="list-unstyled mb-0 d-grid gap-3">
+
+                        <li>
+                            <i class="bi bi-check-circle-fill text-info me-2"></i>
+                            Product strategy to launch acceleration
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle-fill text-info me-2"></i>
+                            Cloud-native architecture and modernization
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle-fill text-info me-2"></i>
+                            Agile delivery with transparent communication
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+@Html.Raw(Model.Page?.Content)
+
+@foreach (var page in Model.IncludedPages)
+{
+    var anchor = string.IsNullOrWhiteSpace(page.HomePageAnchor) ? page.Slug : page.HomePageAnchor;
+    <section id="@anchor" class="home-cms-section">
+        @Html.Raw(page.Content)
+    </section>
+}
+
+</div>
+
+@section Scripts {
+
+    <script src="~/js/home.js"
+            asp-append-version="true">
+    </script>
+
+}

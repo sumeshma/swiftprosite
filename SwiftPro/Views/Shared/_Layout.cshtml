@@ -1,0 +1,46 @@
+@using Microsoft.EntityFrameworkCore
+@inject SwiftPro.Data.ApplicationDbContext DbContext
+@{
+    var layoutSettings = await DbContext.SiteSettings.AsNoTracking().FirstOrDefaultAsync();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(ViewData["Title"] ?? "SwiftPro Solutions | Premium Software Engineering")</title>
+    <meta name="description" content="@(ViewData["MetaDescription"] ?? "SwiftPro Solutions is a modern software company delivering scalable digital products and enterprise solutions.")" />
+    <meta property="og:title" content="@(ViewData["Title"] ?? "SwiftPro Solutions")" />
+    <meta property="og:description" content="@(ViewData["MetaDescription"] ?? "Modern software engineering and digital transformation services by SwiftPro Solutions.")" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.swiftprosolutions.com/" />
+    @if (!string.IsNullOrWhiteSpace(layoutSettings?.FaviconUrl))
+    {
+        <link rel="icon" href="@layoutSettings.FaviconUrl" />
+    }
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SwiftPro.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("Head", required: false)
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <partial name="_Navbar" />
+    </header>
+    <main role="main" class="flex-fill">
+        <div class="swiftpro-page">
+            @RenderBody()
+        </div>
+    </main>
+    @* <partial name="_LoginPartial" /> *@
+    <partial name="_Footer" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

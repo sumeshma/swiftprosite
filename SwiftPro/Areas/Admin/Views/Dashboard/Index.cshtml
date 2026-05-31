@@ -1,0 +1,131 @@
+@using SwiftPro.Models
+@{
+    ViewData["Title"] = "Dashboard";
+    var recentPages = ViewBag.RecentPages as IEnumerable<CmsPage> ?? Enumerable.Empty<CmsPage>();
+    var recentContacts = ViewBag.RecentContacts as IEnumerable<ContactMessage> ?? Enumerable.Empty<ContactMessage>();
+}
+
+<div class="row g-4 mb-4">
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-stat">
+            <span class="admin-stat-icon"><i class="bi bi-file-earmark-richtext"></i></span>
+            <div>
+                <span class="admin-card-kicker">Total Pages</span>
+                <h2>@ViewBag.TotalPages</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-stat">
+            <span class="admin-stat-icon"><i class="bi bi-check2-circle"></i></span>
+            <div>
+                <span class="admin-card-kicker">Published</span>
+                <h2>@ViewBag.PublishedPages</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-stat">
+            <span class="admin-stat-icon"><i class="bi bi-envelope-paper"></i></span>
+            <div>
+                <span class="admin-card-kicker">Messages</span>
+                <h2>@ViewBag.TotalContacts</h2>
+                <small class="text-secondary">@ViewBag.UnreadContacts unread</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-stat">
+            <span class="admin-stat-icon"><i class="bi bi-list-stars"></i></span>
+            <div>
+                <span class="admin-card-kicker">Menu Items</span>
+                <h2>@ViewBag.TotalMenus</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-stat">
+            <span class="admin-stat-icon"><i class="bi bi-images"></i></span>
+            <div>
+                <span class="admin-card-kicker">Media Assets</span>
+                <h2>@ViewBag.TotalMedia</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-xl-7">
+        <section class="admin-panel">
+            <div class="admin-panel-header">
+                <div>
+                    <span class="admin-card-kicker">Content Operations</span>
+                    <h2 class="h4 mb-0">Recent Pages</h2>
+                </div>
+                <a class="btn btn-primary" asp-area="Admin" asp-controller="Pages" asp-action="Create">
+                    <i class="bi bi-plus-lg"></i>
+                    New Page
+                </a>
+            </div>
+            <div class="table-responsive">
+                <table class="table admin-table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Page</th>
+                            <th>Slug</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cmsPage in recentPages)
+                        {
+                            <tr>
+                                <td>@cmsPage.Title</td>
+                                <td><code>@cmsPage.Slug</code></td>
+                                <td>
+                                    <span class="badge @(cmsPage.IsPublished ? "text-bg-success" : "text-bg-secondary")">
+                                        @(cmsPage.IsPublished ? "Published" : "Draft")
+                                    </span>
+                                </td>
+                                <td class="text-end">
+                                    <a class="btn btn-sm btn-outline-primary" asp-area="Admin" asp-controller="Pages" asp-action="Edit" asp-route-id="@cmsPage.Id">Edit</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <div class="col-xl-5">
+        <section class="admin-panel">
+            <div class="admin-panel-header">
+                <div>
+                    <span class="admin-card-kicker">Lead Inbox</span>
+                    <h2 class="h4 mb-0">Recent Messages</h2>
+                </div>
+            </div>
+            <div class="d-grid gap-3">
+                @foreach (var contact in recentContacts)
+                {
+                    <article class="admin-card p-3">
+                        <div class="d-flex justify-content-between gap-3">
+                            <strong>@contact.Name</strong>
+                            <small class="text-secondary">@contact.CreatedUtc.ToLocalTime().ToString("MMM d")</small>
+                        </div>
+                        <p class="mb-1 text-secondary">@contact.Subject</p>
+                        <div class="d-flex justify-content-between align-items-center gap-2">
+                            <small>@contact.Email</small>
+                            <a class="btn btn-sm btn-outline-primary" asp-area="Admin" asp-controller="Messages" asp-action="Details" asp-route-id="@contact.Id">Open</a>
+                        </div>
+                    </article>
+                }
+                @if (!recentContacts.Any())
+                {
+                    <p class="text-secondary mb-0">No contact messages yet.</p>
+                }
+            </div>
+        </section>
+    </div>
+</div>

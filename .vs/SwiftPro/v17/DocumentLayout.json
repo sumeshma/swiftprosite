@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sma\\Downloads\\swiftPro 31-05-2026\\swiftPro 31-05-2026\\SwiftPro\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|c:\\users\\sma\\downloads\\swiftpro 31-05-2026\\swiftpro 31-05-2026\\swiftpro\\swiftpro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\sma\\Downloads\\swiftPro 31-05-2026\\swiftPro 31-05-2026\\SwiftPro\\SwiftPro\\appsettings.json",
+              "RelativeDocumentMoniker": "SwiftPro\\appsettings.json",
+              "ToolTip": "C:\\Users\\sma\\Downloads\\swiftPro 31-05-2026\\swiftPro 31-05-2026\\SwiftPro\\SwiftPro\\appsettings.json",
+              "RelativeToolTip": "SwiftPro\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-31T01:53:40.004Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+@model SwiftPro.Models.SiteSetting
+
+@{
+    ViewData["Title"] = "Header & Footer";
+}
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Website Layout</span>
+            <h2 class="h4 mb-0">Header & Footer Manager</h2>
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+            <a asp-area="Admin" asp-controller="Media" asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-images"></i>
+                Media Library
+            </a>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary" target="_blank">
+                <i class="bi bi-box-arrow-up-right"></i>
+                Preview Site
+            </a>
+        </div>
+    </div>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+
+        <div class="row g-4">
+            <div class="col-xl-8">
+                <div class="admin-card p-4 mb-4">
+                    <span class="admin-card-kicker mb-2">Header</span>
+                    <div class="admin-form-grid">
+                        <div>
+                            <label asp-for="SiteName" class="form-label">Site Name</label>
+                            <input asp-for="SiteName" class="form-control" />
+                            <span asp-validation-for="SiteName" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <label asp-for="LogoUrl" class="form-label">Header Logo URL</label>
+                            <input asp-for="LogoUrl" class="form-control" placeholder="/uploads/media/logo/file.png" />
+                            <div class="form-text">Recommended: transparent PNG/SVG, about 360 x 92 px.</div>
+                        </div>
+                        <div>
+                            <label asp-for="HeaderLogoWidth" class="form-label">Header Logo Width</label>
+                            <input asp-for="HeaderLogoWidth" class="form-control" type="number" min="80" max="360" />
+                            <div class="form-text">Recommended display width: 160-240 px.</div>
+                        </div>
+                        <div class="admin-check mt-4">
+                            <input asp-for="ShowSocialIconsInHeader" class="form-check-input" />
+                            <label asp-for="ShowSocialIconsInHeader" class="form-check-label">Show social icons in header</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card p-4 mb-4">
+                    <span class="admin-card-kicker mb-2">Social Links</span>
+                    <div class="admin-form-grid">
+                        <div>
+                            <label asp-for="WhatsAppNumber" class="form-label">WhatsApp Number</label>
+                            <input asp-for="WhatsAppNumber" class="form-control" placeholder="919000000000" />
+                            <div class="form-text">Use country code and digits only.</div>
+                        </div>
+                        <div>
+                            <label asp-for="FacebookUrl" class="form-label">Facebook URL</label>
+                            <input asp-for="FacebookUrl" class="form-control" placeholder="https://facebook.com/yourpage" />
+                        </div>
+                        <div>
+                            <label asp-for="InstagramUrl" class="form-label">Instagram URL</label>
+                            <input asp-for="InstagramUrl" class="form-control" placeholder="https://instagram.com/yourprofile" />
+                        </div>
+                        <div>
+                            <label asp-for="LinkedInUrl" class="form-label">LinkedIn URL</label>
+                            <input asp-for="LinkedInUrl" class="form-control" placeholder="https://linkedin.com/company/yourcompany" />
+                        </div>
+                        <div>
+                            <label asp-for="XUrl" class="form-label">X URL</label>
+                            <input asp-for="XUrl" class="form-control" placeholder="https://x.com/yourprofile" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-card p-4">
+                    <span class="admin-card-kicker mb-2">Footer Content</span>
+                    <div class="admin-form-grid">
+                        <div>
+                            <label asp-for="FooterLogoUrl" class="form-label">Footer Logo URL</label>
+                            <input asp-for="FooterLogoUrl" class="form-control" placeholder="/uploads/media/logo/file.png" />
+                        </div>
+                        <div>
+                            <label asp-for="FooterLogoWidth" class="form-label">Footer Logo Width</label>
+                            <input asp-for="FooterLogoWidth" class="form-control" type="number" min="80" max="360" />
+                        </div>
+                        <div class="admin-check">
+                            <input asp-for="ShowSocialIconsInFooter" class="form-check-input" />
+                            <label asp-for="ShowSocialIconsInFooter" class="form-check-label">Show social icons in footer</label>
+                        </div>
+                        <div>
+                            <label asp-for="ContactEmail" class="form-label">Contact Email</label>
+                            <input asp-for="ContactEmail" class="form-control" />
+                        </div>
+                        <div>
+                            <label asp-for="ContactPhone" class="form-label">Contact Phone</label>
+                            <input asp-for="ContactPhone" class="form-control" />
+                        </div>
+                        <div class="full">
+                            <label asp-for="FooterText" class="form-label">Footer Text</label>
+                            <textarea asp-for="FooterText" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div>
+                            <label asp-for="FooterCompanyHeading" class="form-label">Company Column Heading</label>
+                            <input asp-for="FooterCompanyHeading" class="form-control" />
+                        </div>
+                        <div>
+                            <label asp-for="FooterResourcesHeading" class="form-label">Resources Column Heading</label>
+                            <input asp-for="FooterResourcesHeading" class="form-control" />
+                        </div>
+                        <div class="full">
+                            <label asp-for="FooterCompanyLinksHtml" class="form-label">Company Links HTML</label>
+                            <textarea asp-for="FooterCompanyLinksHtml" class="form-control code-editor" rows="6" placeholder="<li><a href='/Company/About'>About Us</a></li>"></textarea>
+                            <div class="form-text">Enter only footer list items. Example: &lt;li&gt;&lt;a href="/Company/About"&gt;About Us&lt;/a&gt;&lt;/li&gt;</div>
+                        </div>
+                        <div class="full">
+                            <label asp-for="FooterResourcesLinksHtml" class="form-label">Resources Links HTML</label>
+                            <textarea asp-for="FooterResourcesLinksHtml" class="form-control code-editor" rows="6" placeholder="<li><a href='/Company/Careers'>Careers</a></li>"></textarea>
+                        </div>
+                        <div class="full">
+                            <label asp-for="FooterBottomText" class="form-label">Footer Bottom Text</label>
+                            <input asp-for="FooterBottomText" class="form-control" placeholder="Built with ASP.NET Core MVC + PostgreSQL" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4">
+                <div class="admin-preview sticky-xl-top" style="top: 112px;">
+                    <span class="admin-card-kicker mb-2">Live Content Preview</span>
+                    <div class="border rounded-3 p-3 bg-dark text-white mb-3">
+                        @if (!string.IsNullOrWhiteSpace(Model.LogoUrl))
+                        {
+                            <img src="@Model.LogoUrl" alt="Header logo preview" style="max-width:@(Model.HeaderLogoWidth)px; max-height:56px; object-fit:contain;" />
+                        }
+                        else
+                        {
+                            <strong>@Model.SiteName</strong>
+                        }
+                        <div class="mt-3 d-flex gap-2">
+                            @if (Model.ShowSocialIconsInHeader)
+                            {
+                                <i class="bi bi-whatsapp"></i>
+                                <i class="bi bi-facebook"></i>
+                                <i class="bi bi-instagram"></i>
+                                <i class="bi bi-linkedin"></i>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="border rounded-3 p-3 bg-white">
+                        @if (!string.IsNullOrWhiteSpace(Model.FooterLogoUrl))
+                        {
+                            <img src="@Model.FooterLogoUrl" alt="Footer logo preview" style="max-width:@(Model.FooterLogoWidth)px; max-height:70px; object-fit:contain;" />
+                        }
+                        <p class="text-secondary small mt-3 mb-3">@Model.FooterText</p>
+                        <div class="small">
+                            <strong>@(Model.FooterCompanyHeading ?? "Company")</strong>
+                            <div class="text-secondary mt-1">Dynamic footer links render here.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-save"></i>
+                Save Header & Footer
+            </button>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

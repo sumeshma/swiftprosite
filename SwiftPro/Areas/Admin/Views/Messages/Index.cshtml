@@ -1,0 +1,78 @@
+@model IEnumerable<SwiftPro.Models.ContactMessage>
+
+@{
+    ViewData["Title"] = "Messages";
+    var selectedStatus = ViewBag.Status as string;
+    var statuses = new[] { "New", "In Progress", "Replied", "Closed" };
+}
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Lead Inbox</span>
+            <h2 class="h4 mb-0">Contact Messages</h2>
+        </div>
+        <div class="btn-group">
+            <a class="btn btn-outline-secondary @(selectedStatus == null ? "active" : "")" asp-action="Index">All</a>
+            @foreach (var status in statuses)
+            {
+                <a class="btn btn-outline-secondary @(selectedStatus == status ? "active" : "")" asp-action="Index" asp-route-status="@status">@status</a>
+            }
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table admin-table align-middle">
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Received</th>
+                    <th>Last Reply</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in Model)
+                {
+                    <tr class="@(message.IsRead ? "" : "table-info")">
+                        <td>
+                            <strong>@message.Name</strong>
+                            <div class="small text-secondary">@message.Email</div>
+                            @if (!string.IsNullOrWhiteSpace(message.PhoneNumber))
+                            {
+                                <div class="small text-secondary">@message.CountryCode @message.PhoneNumber</div>
+                            }
+                        </td>
+                        <td>@message.Subject</td>
+                        <td><span class="badge text-bg-light">@message.Status</span></td>
+                        <td>@message.CreatedUtc.ToLocalTime().ToString("MMM d, yyyy h:mm tt")</td>
+                        <td>
+                            @if (message.LastRepliedAt.HasValue)
+                            {
+                                <span>@message.LastReplyChannel</span>
+                                <div class="small text-secondary">@message.LastRepliedAt.Value.ToLocalTime().ToString("MMM d, h:mm tt")</div>
+                            }
+                            else
+                            {
+                                <span class="text-secondary">Not replied</span>
+                            }
+                        </td>
+                        <td class="text-end">
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Details" asp-route-id="@message.Id">
+                                <i class="bi bi-envelope-open"></i>
+                                Open
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p class="text-secondary mb-0">No messages found.</p>
+    }
+</section>

@@ -1,0 +1,11 @@
+@model SwiftPro.Models.CmsPage
+
+@{
+    Layout = "_Layout";
+}
+
+@section Head {
+    <link rel="stylesheet" href="~/css/corefit.css" asp-append-version="true" />
+}
+
+@Html.Raw(Model.Content)

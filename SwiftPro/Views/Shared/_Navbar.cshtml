@@ -1,0 +1,92 @@
+@using Microsoft.EntityFrameworkCore
+@inject SwiftPro.Data.ApplicationDbContext DbContext
+
+@{
+    var settings = await DbContext.SiteSettings.AsNoTracking().FirstOrDefaultAsync();
+    var menuItems = await DbContext.NavigationMenuItems
+        .AsNoTracking()
+        .Where(x => x.IsActive)
+        .OrderBy(x => x.SortOrder)
+        .ThenBy(x => x.Label)
+        .ToListAsync();
+
+    if (!menuItems.Any())
+    {
+        menuItems = new()
+        {
+            new() { Label = "Home", Url = "/" },
+            new() { Label = "About", Url = "/Company/About" },
+            new() { Label = "Services", Url = "/Company/Services" },
+            new() { Label = "Technologies", Url = "/Company/Technologies" },
+            new() { Label = "Portfolio", Url = "/Company/Portfolio" },
+            new() { Label = "Careers", Url = "/Company/Careers" },
+            new() { Label = "Contact Us", Url = "/Contact", IsButton = true }
+        };
+    }
+
+    var logoUrl = string.IsNullOrWhiteSpace(settings?.LogoUrl)
+        ? "/images/swiftpro-logo.png"
+        : settings.LogoUrl;
+    var logoWidth = settings?.HeaderLogoWidth > 0 ? settings.HeaderLogoWidth : 180;
+    var whatsappNumber = new string((settings?.WhatsAppNumber ?? string.Empty).Where(char.IsDigit).ToArray());
+    var socialLinks = new List<(string Label, string Url, string Icon)>
+    {
+        ("WhatsApp", string.IsNullOrWhiteSpace(whatsappNumber) ? string.Empty : $"https://wa.me/{whatsappNumber}", "bi bi-whatsapp"),
+        ("Facebook", settings?.FacebookUrl ?? string.Empty, "bi bi-facebook"),
+        ("Instagram", settings?.InstagramUrl ?? string.Empty, "bi bi-instagram"),
+        ("LinkedIn", settings?.LinkedInUrl ?? string.Empty, "bi bi-linkedin"),
+        ("X", settings?.XUrl ?? string.Empty, "bi bi-twitter-x")
+    }.Where(x => !string.IsNullOrWhiteSpace(x.Url)).ToList();
+}
+
+<nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top swiftpro-navbar">
+    <div class="container">
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index" aria-label="SwiftPro Solutions Home">
+            <img src="@logoUrl"
+                 alt="@(settings?.SiteName ?? "SwiftPro Solutions")"
+                 class="swiftpro-brand-logo"
+                 style="width:@(logoWidth)px"
+                 loading="eager"
+                 decoding="async"
+                 fetchpriority="high" />
+        </a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavItems" aria-controls="mainNavItems" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavItems">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                @foreach (var item in menuItems)
+                {
+                    <li class="nav-item @(item.IsButton ? "ms-lg-2" : "")">
+                        <a class="@(item.IsButton ? "btn btn-primary rounded-pill px-4" : "nav-link")"
+                           href="@item.Url"
+                           target="@(item.OpenInNewTab ? "_blank" : null)"
+                           rel="@(item.OpenInNewTab ? "noopener noreferrer" : null)">
+                            @if (!string.IsNullOrWhiteSpace(item.IconClass))
+                            {
+                                <i class="@item.IconClass me-1"></i>
+                            }
+                            @item.Label
+                        </a>
+                    </li>
+                }
+            </ul>
+            @if (settings?.ShowSocialIconsInHeader == true && socialLinks.Any())
+            {
+                <div class="swiftpro-social-links swiftpro-social-links-header ms-lg-3 mt-3 mt-lg-0" aria-label="Social media links">
+                    @foreach (var link in socialLinks)
+                    {
+                        <a class="swiftpro-social-link"
+                           href="@link.Url"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="@link.Label"
+                           title="@link.Label">
+                            <i class="@link.Icon"></i>
+                        </a>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</nav>

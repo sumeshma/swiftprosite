@@ -1,0 +1,208 @@
+@model SwiftPro.Models.SiteSetting
+
+@{
+    ViewData["Title"] = "Appearance";
+}
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Brand & Visuals</span>
+            <h2 class="h4 mb-0">Appearance Settings</h2>
+        </div>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary" target="_blank">Preview Site</a>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+
+        <div class="admin-form-grid">
+            <div>
+                <label asp-for="SiteName" class="form-label">Site Name</label>
+                <input asp-for="SiteName" class="form-control" />
+                <span asp-validation-for="SiteName" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ContactEmail" class="form-label">Contact Email</label>
+                <input asp-for="ContactEmail" class="form-control" />
+            </div>
+            <div>
+                <label asp-for="ContactPhone" class="form-label">Contact Phone</label>
+                <input asp-for="ContactPhone" class="form-control" />
+            </div>
+            <div class="admin-check align-self-end">
+                <input asp-for="SendContactEmails" class="form-check-input" />
+                <label asp-for="SendContactEmails" class="form-check-label">Email contact form messages to Contact Email</label>
+            </div>
+            <div>
+                <label asp-for="SmtpHost" class="form-label">SMTP Host</label>
+                <input asp-for="SmtpHost" class="form-control" placeholder="smtp.gmail.com" />
+            </div>
+            <div>
+                <label asp-for="SmtpPort" class="form-label">SMTP Port</label>
+                <input asp-for="SmtpPort" class="form-control" type="number" min="1" max="65535" />
+            </div>
+            <div class="admin-check align-self-end">
+                <input asp-for="SmtpEnableSsl" class="form-check-input" />
+                <label asp-for="SmtpEnableSsl" class="form-check-label">Use SSL / TLS</label>
+            </div>
+            <div>
+                <label asp-for="SmtpUsername" class="form-label">SMTP Username</label>
+                <input asp-for="SmtpUsername" class="form-control" autocomplete="off" />
+            </div>
+            <div>
+                <label asp-for="SmtpPassword" class="form-label">SMTP Password</label>
+                <input asp-for="SmtpPassword" class="form-control" type="password" value="" autocomplete="new-password" placeholder="Leave blank to keep existing password" />
+                <div class="form-text">For Gmail or Microsoft accounts, use an app password.</div>
+            </div>
+            <div>
+                <label asp-for="SmtpFromEmail" class="form-label">SMTP From Email</label>
+                <input asp-for="SmtpFromEmail" class="form-control" placeholder="no-reply@yourdomain.com" />
+            </div>
+            <div>
+                <label asp-for="WhatsAppNumber" class="form-label">WhatsApp Number</label>
+                <input asp-for="WhatsAppNumber" class="form-control" placeholder="919000000000" />
+                <div class="form-text">Use country code and digits only for wa.me reply links.</div>
+            </div>
+            <div>
+                <label asp-for="FacebookUrl" class="form-label">Facebook Page / Inbox URL</label>
+                <input asp-for="FacebookUrl" class="form-control" />
+            </div>
+            <div>
+                <label asp-for="InstagramUrl" class="form-label">Instagram URL</label>
+                <input asp-for="InstagramUrl" class="form-control" />
+            </div>
+            <div>
+                <label asp-for="LinkedInUrl" class="form-label">LinkedIn URL</label>
+                <input asp-for="LinkedInUrl" class="form-control" />
+            </div>
+            <div>
+                <label asp-for="XUrl" class="form-label">X URL</label>
+                <input asp-for="XUrl" class="form-control" />
+            </div>
+            <div>
+                <label asp-for="LogoUrl" class="form-label">Header Logo URL</label>
+                <input asp-for="LogoUrl" class="form-control" placeholder="/uploads/media/logo/file.png" />
+                <div class="form-text">Recommended source: 360 x 92 px transparent PNG/SVG.</div>
+            </div>
+            <div>
+                <label asp-for="HeaderLogoWidth" class="form-label">Header Logo Width</label>
+                <input asp-for="HeaderLogoWidth" class="form-control" type="number" min="80" max="320" />
+                <div class="form-text">Recommended display width: 160-220 px.</div>
+            </div>
+            <div>
+                <label class="form-label">Upload Header Logo</label>
+                <input class="form-control" type="file" name="logoFile" accept="image/*" />
+            </div>
+            <div>
+                <label asp-for="FooterLogoUrl" class="form-label">Footer Logo URL</label>
+                <input asp-for="FooterLogoUrl" class="form-control" placeholder="/uploads/media/footer/file.png" />
+            </div>
+            <div>
+                <label asp-for="FooterLogoWidth" class="form-label">Footer Logo Width</label>
+                <input asp-for="FooterLogoWidth" class="form-control" type="number" min="80" max="320" />
+            </div>
+            <div>
+                <label asp-for="FaviconUrl" class="form-label">Icon / Favicon URL</label>
+                <input asp-for="FaviconUrl" class="form-control" placeholder="/uploads/media/icon/file.ico" />
+                <div class="form-text">Recommended: 512 x 512 PNG/SVG or ICO.</div>
+            </div>
+            <div>
+                <label asp-for="DefaultThumbnailUrl" class="form-label">Default Thumbnail URL</label>
+                <input asp-for="DefaultThumbnailUrl" class="form-control" placeholder="/uploads/media/thumbnail/file.webp" />
+                <div class="form-text">Recommended: 1200 x 675 px.</div>
+            </div>
+            <div>
+                <label asp-for="HeroBackgroundImageUrl" class="form-label">Homepage Background URL</label>
+                <input asp-for="HeroBackgroundImageUrl" class="form-control" placeholder="/uploads/media/background/file.webp" />
+                <div class="form-text">Recommended: 1920 x 1080 px, WEBP/JPG under 500 KB.</div>
+            </div>
+            <div class="admin-check align-self-end">
+                <input asp-for="UseSingleHomePageBackground" class="form-check-input" />
+                <label asp-for="UseSingleHomePageBackground" class="form-check-label">Use this picture behind all home page sections</label>
+            </div>
+            <div class="full">
+                <label asp-for="HomePageSectionTransparency" class="form-label">Home Page Section Transparency</label>
+                <div class="d-flex align-items-center gap-3">
+                    <input asp-for="HomePageSectionTransparency" class="form-range" type="range" min="0" max="100" step="5" />
+                    <output class="badge text-bg-light" id="homeTransparencyValue">@Model.HomePageSectionTransparency%</output>
+                </div>
+                <div class="form-text">0% keeps imported pages solid. 100% makes the shared background fully visible behind page sections.</div>
+            </div>
+            <div class="full">
+                <label class="form-label">Upload Homepage Background Picture</label>
+                <input class="form-control" type="file" name="heroBackgroundFile" accept="image/*" />
+            </div>
+            <div class="full">
+                <label asp-for="FooterText" class="form-label">Footer Text</label>
+                <textarea asp-for="FooterText" class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <div class="col-lg-4">
+                <div class="admin-preview">
+                    <span class="admin-card-kicker mb-2">Current Logo</span>
+                    @if (!string.IsNullOrWhiteSpace(Model.LogoUrl))
+                    {
+                        <img src="@Model.LogoUrl" alt="Current logo" style="max-width:@(Model.HeaderLogoWidth)px" />
+                    }
+                    else
+                    {
+                        <p class="text-secondary mb-0">No logo set.</p>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="admin-preview">
+                    <span class="admin-card-kicker mb-2">Current Footer Logo</span>
+                    @if (!string.IsNullOrWhiteSpace(Model.FooterLogoUrl))
+                    {
+                        <img src="@Model.FooterLogoUrl" alt="Current footer logo" style="max-width:@(Model.FooterLogoWidth)px" />
+                    }
+                    else
+                    {
+                        <p class="text-secondary mb-0">No footer logo set.</p>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="admin-preview">
+                    <span class="admin-card-kicker mb-2">Current Homepage Background</span>
+                    @if (!string.IsNullOrWhiteSpace(Model.HeroBackgroundImageUrl))
+                    {
+                        <img src="@Model.HeroBackgroundImageUrl" alt="Current homepage background" />
+                    }
+                    else
+                    {
+                        <p class="text-secondary mb-0">No custom background uploaded. The default gradient is active.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <a asp-area="Admin" asp-controller="Media" asp-action="Index" class="btn btn-outline-secondary">
+                Open Media Library
+            </a>
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-save"></i>
+                Save Appearance
+            </button>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const transparencyInput = document.getElementById("HomePageSectionTransparency");
+        const transparencyValue = document.getElementById("homeTransparencyValue");
+        if (transparencyInput && transparencyValue) {
+            transparencyInput.addEventListener("input", () => {
+                transparencyValue.textContent = `${transparencyInput.value}%`;
+            });
+        }
+    </script>
+}

@@ -1,0 +1,151 @@
+@model SwiftPro.Areas.Admin.Models.MessageDetailsViewModel
+
+@{
+    ViewData["Title"] = "Message Details";
+    var message = Model.Message;
+    var encodedSubject = Uri.EscapeDataString(message.Subject);
+}
+
+<div class="row g-4">
+    <div class="col-xl-8">
+        <section class="admin-panel">
+            <div class="admin-panel-header">
+                <div>
+                    <span class="admin-card-kicker">From @message.Name</span>
+                    <h2 class="h4 mb-0">@message.Subject</h2>
+                </div>
+                <a asp-action="Index" class="btn btn-outline-secondary">Back to Inbox</a>
+            </div>
+
+            <dl class="row mb-4">
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9"><a href="mailto:@message.Email">@message.Email</a></dd>
+                <dt class="col-sm-3">Phone</dt>
+                <dd class="col-sm-9">
+                    @if (!string.IsNullOrWhiteSpace(message.PhoneNumber))
+                    {
+                        <a href="tel:@($"{message.CountryCode}{message.PhoneNumber}".Replace(" ", ""))">@message.CountryCode @message.PhoneNumber</a>
+                    }
+                    else
+                    {
+                        <span class="text-secondary">Not provided</span>
+                    }
+                </dd>
+                <dt class="col-sm-3">Country</dt>
+                <dd class="col-sm-9">@(string.IsNullOrWhiteSpace(message.Country) ? "Not provided" : message.Country)</dd>
+                <dt class="col-sm-3">Received</dt>
+                <dd class="col-sm-9">@message.CreatedUtc.ToLocalTime().ToString("MMM d, yyyy h:mm tt")</dd>
+                <dt class="col-sm-3">Status</dt>
+                <dd class="col-sm-9"><span class="badge text-bg-light">@message.Status</span></dd>
+            </dl>
+
+            <div class="admin-message-body mb-4">
+                @message.Message
+            </div>
+
+            <form asp-action="UpdateStatus" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@message.Id" />
+                <div class="admin-form-grid">
+                    <div>
+                        <label class="form-label" for="status">Status</label>
+                        <select class="form-select" id="status" name="status">
+                            @foreach (var status in new[] { "New", "In Progress", "Replied", "Closed" })
+                            {
+                                <option value="@status" selected="@(message.Status == status)">@status</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="full">
+                        <label class="form-label" for="adminNotes">Internal Notes</label>
+                        <textarea class="form-control" id="adminNotes" name="adminNotes" rows="4">@message.AdminNotes</textarea>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mt-4">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-save"></i>
+                        Save Message
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-xl-4">
+        <section class="admin-panel">
+            <div class="admin-panel-header">
+                <div>
+                    <span class="admin-card-kicker">Reply Center</span>
+                    <h2 class="h4 mb-0">Open Reply Channel</h2>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <a class="btn btn-primary admin-reply-link" href="@Model.EmailReplyUrl" data-channel="Email" data-message-id="@message.Id">
+                    <i class="bi bi-envelope"></i>
+                    Reply by Email
+                </a>
+
+                @if (!string.IsNullOrWhiteSpace(Model.WhatsAppReplyUrl))
+                {
+                    <a class="btn btn-success admin-reply-link" href="@Model.WhatsAppReplyUrl" target="_blank" rel="noopener noreferrer" data-channel="WhatsApp" data-message-id="@message.Id">
+                        <i class="bi bi-whatsapp"></i>
+                        Open WhatsApp
+                    </a>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.SiteSetting.FacebookUrl))
+                {
+                    <a class="btn btn-outline-primary admin-reply-link" href="@Model.SiteSetting.FacebookUrl" target="_blank" rel="noopener noreferrer" data-channel="Facebook" data-message-id="@message.Id">
+                        <i class="bi bi-facebook"></i>
+                        Open Facebook
+                    </a>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.SiteSetting.InstagramUrl))
+                {
+                    <a class="btn btn-outline-danger admin-reply-link" href="@Model.SiteSetting.InstagramUrl" target="_blank" rel="noopener noreferrer" data-channel="Instagram" data-message-id="@message.Id">
+                        <i class="bi bi-instagram"></i>
+                        Open Instagram
+                    </a>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.SiteSetting.LinkedInUrl))
+                {
+                    <a class="btn btn-outline-primary admin-reply-link" href="@Model.SiteSetting.LinkedInUrl" target="_blank" rel="noopener noreferrer" data-channel="LinkedIn" data-message-id="@message.Id">
+                        <i class="bi bi-linkedin"></i>
+                        Open LinkedIn
+                    </a>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.SiteSetting.XUrl))
+                {
+                    <a class="btn btn-outline-dark admin-reply-link" href="@Model.SiteSetting.XUrl" target="_blank" rel="noopener noreferrer" data-channel="X" data-message-id="@message.Id">
+                        <i class="bi bi-twitter-x"></i>
+                        Open X
+                    </a>
+                }
+            </div>
+
+            <hr />
+            <p class="text-secondary small mb-0">Social buttons open your configured company channel. Email opens a pre-filled message to the contact sender.</p>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll(".admin-reply-link").forEach((link) => {
+            link.addEventListener("click", () => {
+                const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
+                const data = new URLSearchParams();
+                data.append("id", link.dataset.messageId);
+                data.append("channel", link.dataset.channel);
+                if (token) {
+                    data.append("__RequestVerificationToken", token);
+                }
+
+                navigator.sendBeacon("/Admin/Messages/TrackReply", data);
+            });
+        });
+    </script>
+}

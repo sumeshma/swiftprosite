@@ -1,0 +1,51 @@
+@model SwiftPro.Areas.Admin.Models.EditUserRolesViewModel
+
+@{
+    ViewData["Title"] = "User Permissions";
+}
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Access Control</span>
+            <h2 class="h4 mb-0">@Model.Email</h2>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary">Back to Users</a>
+    </div>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="Email" />
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <div class="admin-form-grid">
+            <div>
+                <label asp-for="FullName" class="form-label">Full Name</label>
+                <input asp-for="FullName" class="form-control" />
+            </div>
+            <div class="form-check align-self-end mb-2">
+                <input asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label">Active</label>
+            </div>
+            <div class="full">
+                <label class="form-label">Assigned Roles</label>
+                <div class="admin-check-grid">
+                    @foreach (var role in Model.AvailableRoles)
+                    {
+                        <label class="admin-check">
+                            <input type="checkbox" name="SelectedRoles" value="@role" checked="@Model.SelectedRoles.Contains(role)" />
+                            <span>@role</span>
+                        </label>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-save"></i>
+                Save Permissions
+            </button>
+        </div>
+    </form>
+</section>

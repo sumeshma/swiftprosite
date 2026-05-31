@@ -1,0 +1,104 @@
+@using Microsoft.EntityFrameworkCore
+@inject SwiftPro.Data.ApplicationDbContext DbContext
+
+@{
+    var settings = await DbContext.SiteSettings.AsNoTracking().FirstOrDefaultAsync();
+    var siteName = settings?.SiteName ?? "SwiftPro Solutions";
+    var footerText = settings?.FooterText ?? "We craft premium digital products and enterprise-grade solutions for ambitious organizations worldwide.";
+    var contactEmail = settings?.ContactEmail ?? "hello@swiftprosolutions.com";
+    var contactPhone = settings?.ContactPhone ?? "+91 90000 00000";
+    var footerLogoUrl = settings?.FooterLogoUrl;
+    var footerLogoWidth = settings?.FooterLogoWidth > 0 ? settings.FooterLogoWidth : 180;
+    var companyHeading = string.IsNullOrWhiteSpace(settings?.FooterCompanyHeading) ? "Company" : settings.FooterCompanyHeading;
+    var resourcesHeading = string.IsNullOrWhiteSpace(settings?.FooterResourcesHeading) ? "Resources" : settings.FooterResourcesHeading;
+    var footerBottomText = string.IsNullOrWhiteSpace(settings?.FooterBottomText) ? "Built with ASP.NET Core MVC + PostgreSQL" : settings.FooterBottomText;
+    var whatsappNumber = new string((settings?.WhatsAppNumber ?? string.Empty).Where(char.IsDigit).ToArray());
+    var socialLinks = new List<(string Label, string Url, string Icon)>
+    {
+        ("WhatsApp", string.IsNullOrWhiteSpace(whatsappNumber) ? string.Empty : $"https://wa.me/{whatsappNumber}", "bi bi-whatsapp"),
+        ("Facebook", settings?.FacebookUrl ?? string.Empty, "bi bi-facebook"),
+        ("Instagram", settings?.InstagramUrl ?? string.Empty, "bi bi-instagram"),
+        ("LinkedIn", settings?.LinkedInUrl ?? string.Empty, "bi bi-linkedin"),
+        ("X", settings?.XUrl ?? string.Empty, "bi bi-twitter-x")
+    }.Where(x => !string.IsNullOrWhiteSpace(x.Url)).ToList();
+}
+
+<footer class="swiftpro-footer mt-auto">
+    <div class="container py-5">
+        <div class="row gy-4">
+            <div class="col-lg-4">
+                @if (!string.IsNullOrWhiteSpace(footerLogoUrl))
+                {
+                    <img src="@footerLogoUrl"
+                         alt="@siteName"
+                         class="swiftpro-footer-logo mb-3"
+                         width="@footerLogoWidth"
+                         loading="lazy"
+                         decoding="async" />
+                }
+                else
+                {
+                    <h5 class="mb-3">@siteName</h5>
+                }
+                <p class="text-secondary mb-0">@footerText</p>
+                @if (settings?.ShowSocialIconsInFooter == true && socialLinks.Any())
+                {
+                    <div class="swiftpro-social-links swiftpro-social-links-footer mt-3" aria-label="Social media links">
+                        @foreach (var link in socialLinks)
+                        {
+                            <a class="swiftpro-social-link"
+                               href="@link.Url"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="@link.Label"
+                               title="@link.Label">
+                                <i class="@link.Icon"></i>
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6 class="text-uppercase text-secondary small">@companyHeading</h6>
+                <ul class="list-unstyled mb-0 d-grid gap-2">
+                    @if (!string.IsNullOrWhiteSpace(settings?.FooterCompanyLinksHtml))
+                    {
+                        @Html.Raw(settings.FooterCompanyLinksHtml)
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Company" asp-action="About">About Us</a></li>
+                        <li><a asp-controller="Company" asp-action="Services">Services</a></li>
+                        <li><a asp-controller="Company" asp-action="Portfolio">Portfolio</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6 class="text-uppercase text-secondary small">@resourcesHeading</h6>
+                <ul class="list-unstyled mb-0 d-grid gap-2">
+                    @if (!string.IsNullOrWhiteSpace(settings?.FooterResourcesLinksHtml))
+                    {
+                        @Html.Raw(settings.FooterResourcesLinksHtml)
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Company" asp-action="Technologies">Technologies</a></li>
+                        <li><a asp-controller="Company" asp-action="Careers">Careers</a></li>
+                        <li><a asp-controller="Home" asp-action="Privacy">Privacy Policy</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h6 class="text-uppercase text-secondary small">Contact</h6>
+                <p class="mb-1">@contactEmail</p>
+                <p class="mb-3">@contactPhone</p>
+                <a class="btn btn-outline-light rounded-pill px-4" asp-controller="Contact" asp-action="Index">Start a Conversation</a>
+            </div>
+        </div>
+        <hr class="border-secondary-subtle my-4" />
+        <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+            <small class="text-secondary">© @DateTime.UtcNow.Year @siteName. All rights reserved.</small>
+            <small class="text-secondary">@footerBottomText</small>
+        </div>
+    </div>
+</footer>

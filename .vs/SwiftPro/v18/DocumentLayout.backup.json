@@ -1,0 +1,419 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\models\\herosection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\models\\herosection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\areas\\admin\\controllers\\herosectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\areas\\admin\\controllers\\herosectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\data\\seed\\herosectionseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\data\\seed\\herosectionseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\data\\seed\\pageseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\data\\seed\\pageseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\areas\\admin\\views\\herosection\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\areas\\admin\\views\\herosection\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\models\\homesection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\models\\homesection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\data\\seed\\identityseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\data\\seed\\identityseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\models\\cmspage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\models\\cmspage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\areas\\admin\\views\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\areas\\admin\\views\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\areas\\admin\\controllers\\pagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\areas\\admin\\controllers\\pagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\areas\\admin\\views\\pages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\areas\\admin\\views\\pages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\areas\\admin\\views\\pages\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\areas\\admin\\views\\pages\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Migrations\\20260527104636_addidentityandpages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SwiftPro\\Migrations\\20260527104636_addidentityandpages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\models\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\models\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|d:\\projects\\swiftpro\\swiftpro\\swiftpro\\migrations\\20260528082933_addherosection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8A34D24-CE6B-49F2-A257-699ACBB553C6}|SwiftPro\\SwiftPro.csproj|solutionrelative:swiftpro\\migrations\\20260528082933_addherosection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 24,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAEsVAAAAAAAAAAArwB0VAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-05-28T11:58:08.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SwiftPro\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T08:32:19.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\HeroSection\\Index.cshtml",
+              "RelativeDocumentMoniker": "SwiftPro\\Areas\\Admin\\Views\\HeroSection\\Index.cshtml",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\HeroSection\\Index.cshtml",
+              "RelativeToolTip": "SwiftPro\\Areas\\Admin\\Views\\HeroSection\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-28T08:31:44.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HeroSectionController.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Controllers\\HeroSectionController.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Areas\\Admin\\Controllers\\HeroSectionController.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Controllers\\HeroSectionController.cs",
+              "RelativeToolTip": "SwiftPro\\Areas\\Admin\\Controllers\\HeroSectionController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T08:30:34.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20260528082933_AddHeroSection.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Migrations\\20260528082933_AddHeroSection.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Migrations\\20260528082933_AddHeroSection.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Migrations\\20260528082933_AddHeroSection.cs",
+              "RelativeToolTip": "SwiftPro\\Migrations\\20260528082933_AddHeroSection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T08:29:33.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PageSeeder.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Data\\Seed\\PageSeeder.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Data\\Seed\\PageSeeder.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Data\\Seed\\PageSeeder.cs",
+              "RelativeToolTip": "SwiftPro\\Data\\Seed\\PageSeeder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T08:28:11.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HeroSectionSeeder.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Data\\Seed\\HeroSectionSeeder.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Data\\Seed\\HeroSectionSeeder.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Data\\Seed\\HeroSectionSeeder.cs",
+              "RelativeToolTip": "SwiftPro\\Data\\Seed\\HeroSectionSeeder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T08:23:45.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HeroSection.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Models\\HeroSection.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Models\\HeroSection.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Models\\HeroSection.cs",
+              "RelativeToolTip": "SwiftPro\\Models\\HeroSection.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T08:22:53.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "HomeSection.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Models\\HomeSection.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Models\\HomeSection.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Models\\HomeSection.cs",
+              "RelativeToolTip": "SwiftPro\\Models\\HomeSection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T08:19:49.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SwiftPro\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SwiftPro\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAG4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-28T08:12:03.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "SwiftPro\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "SwiftPro\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwCkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T11:08:53.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "SwiftPro\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "SwiftPro\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T11:00:59.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IdentitySeeder.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Data\\Seed\\IdentitySeeder.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Data\\Seed\\IdentitySeeder.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Data\\Seed\\IdentitySeeder.cs",
+              "RelativeToolTip": "SwiftPro\\Data\\Seed\\IdentitySeeder.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T10:47:54.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20260527104636_addidentityandpages.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Migrations\\20260527104636_addidentityandpages.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Migrations\\20260527104636_addidentityandpages.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Migrations\\20260527104636_addidentityandpages.cs",
+              "RelativeToolTip": "SwiftPro\\Migrations\\20260527104636_addidentityandpages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T10:46:37.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\Pages\\Edit.cshtml",
+              "RelativeDocumentMoniker": "SwiftPro\\Areas\\Admin\\Views\\Pages\\Edit.cshtml",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\Pages\\Edit.cshtml",
+              "RelativeToolTip": "SwiftPro\\Areas\\Admin\\Views\\Pages\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T10:36:07.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\Pages\\Create.cshtml",
+              "RelativeDocumentMoniker": "SwiftPro\\Areas\\Admin\\Views\\Pages\\Create.cshtml",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\Pages\\Create.cshtml",
+              "RelativeToolTip": "SwiftPro\\Areas\\Admin\\Views\\Pages\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T05:08:40.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "SwiftPro\\Areas\\Admin\\Views\\Pages\\Index.cshtml",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\Pages\\Index.cshtml",
+              "RelativeToolTip": "SwiftPro\\Areas\\Admin\\Views\\Pages\\Index.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAAAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T05:08:04.877Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "PagesController.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Controllers\\PagesController.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Areas\\Admin\\Controllers\\PagesController.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Controllers\\PagesController.cs",
+              "RelativeToolTip": "SwiftPro\\Areas\\Admin\\Controllers\\PagesController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwHoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T05:06:57.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "SwiftPro\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "SwiftPro\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T05:06:04.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "SwiftPro\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T05:04:19.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Program.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Program.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Program.cs",
+              "RelativeToolTip": "SwiftPro\\Program.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAgwGgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T04:37:30.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CmsPage.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Models\\CmsPage.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Models\\CmsPage.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Models\\CmsPage.cs",
+              "RelativeToolTip": "SwiftPro\\Models\\CmsPage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T04:37:11.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Models\\Identity\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Models\\Identity\\ApplicationUser.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Models\\Identity\\ApplicationUser.cs",
+              "RelativeToolTip": "SwiftPro\\Models\\Identity\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T04:35:24.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "SwiftPro\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "SwiftPro\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T04:23:38.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\appsettings.json",
+              "RelativeDocumentMoniker": "SwiftPro\\appsettings.json",
+              "ToolTip": "D:\\PROJECTS\\SwiftPro\\SwiftPro\\SwiftPro\\appsettings.json",
+              "RelativeToolTip": "SwiftPro\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-27T04:19:03.484Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

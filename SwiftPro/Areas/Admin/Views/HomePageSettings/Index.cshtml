@@ -1,0 +1,84 @@
+@model SwiftPro.Areas.Admin.Models.HomePageSettingsViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Single Page Website</span>
+            <h2 class="h4 mb-0">Home Page Sections</h2>
+        </div>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i>
+            Preview Home
+        </a>
+    </div>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div class="table-responsive">
+            <table class="table admin-table align-middle">
+                <thead>
+                    <tr>
+                        <th>Include</th>
+                        <th>Page</th>
+                        <th>Anchor</th>
+                        <th>Order</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Pages.Count; i++)
+                    {
+                        <tr>
+                            <td style="width: 110px;">
+                                <input type="hidden" asp-for="Pages[i].PageId" />
+                                <input type="hidden" asp-for="Pages[i].Title" />
+                                <input type="hidden" asp-for="Pages[i].Slug" />
+                                <input type="hidden" asp-for="Pages[i].IsPublished" />
+                                <div class="form-check form-switch">
+                                    <input asp-for="Pages[i].ShowOnHomePage" class="form-check-input" />
+                                </div>
+                            </td>
+                            <td>
+                                <strong>@Model.Pages[i].Title</strong>
+                                <div class="small text-secondary">/@Model.Pages[i].Slug</div>
+                            </td>
+                            <td style="min-width: 220px;">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text">#</span>
+                                    <input asp-for="Pages[i].HomePageAnchor" class="form-control" />
+                                </div>
+                            </td>
+                            <td style="width: 140px;">
+                                <input asp-for="Pages[i].HomePageSortOrder" class="form-control form-control-sm" type="number" />
+                            </td>
+                            <td>
+                                <span class="badge @(Model.Pages[i].IsPublished ? "text-bg-success" : "text-bg-secondary")">
+                                    @(Model.Pages[i].IsPublished ? "Published" : "Draft")
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-info mt-3">
+            <i class="bi bi-info-circle-fill"></i>
+            Only published pages selected here will appear below the hero on the home page. Use the anchor value for menu links like <code>/#services</code>.
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <a asp-area="Admin" asp-controller="Pages" asp-action="Index" class="btn btn-outline-secondary">
+                Manage Pages
+            </a>
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-save"></i>
+                Save Home Page
+            </button>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,133 @@
+@model IEnumerable<SwiftPro.Models.MediaAsset>
+
+@{
+    ViewData["Title"] = "Media Library";
+    var usageTypes = new[] { "Background", "Logo", "Icon", "Thumbnail", "Page", "Footer" };
+    var selectedUsage = ViewBag.UsageType as string;
+    string FormatBytes(long bytes) => bytes < 1024
+        ? $"{bytes} B"
+        : bytes < 1024 * 1024
+            ? $"{bytes / 1024d:0.#} KB"
+            : $"{bytes / 1024d / 1024d:0.#} MB";
+}
+
+<div class="row g-4 mb-4">
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-card p-3 h-100">
+            <span class="admin-card-kicker">Background</span>
+            <strong>1920 x 1080 px</strong>
+            <p class="text-secondary mb-0 small">Use WEBP/JPG under 500 KB for hero and page backgrounds.</p>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-card p-3 h-100">
+            <span class="admin-card-kicker">Header Logo</span>
+            <strong>360 x 92 px</strong>
+            <p class="text-secondary mb-0 small">Transparent PNG or SVG. Display width is adjustable.</p>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-card p-3 h-100">
+            <span class="admin-card-kicker">Icon / Favicon</span>
+            <strong>512 x 512 px</strong>
+            <p class="text-secondary mb-0 small">Square PNG/SVG/ICO for app icons and browser favicon.</p>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="admin-card p-3 h-100">
+            <span class="admin-card-kicker">Thumbnail</span>
+            <strong>1200 x 675 px</strong>
+            <p class="text-secondary mb-0 small">16:9 WEBP/JPG for portfolio cards and previews.</p>
+        </div>
+    </div>
+</div>
+
+<section class="admin-panel mb-4">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Upload</span>
+            <h2 class="h4 mb-0">Add Image</h2>
+        </div>
+    </div>
+
+    <form method="post" asp-action="Upload" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <div class="admin-form-grid">
+            <div>
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" id="title" name="title" placeholder="Xersio dashboard" />
+            </div>
+            <div>
+                <label class="form-label" for="usageType">Usage</label>
+                <select class="form-select" id="usageType" name="usageType">
+                    @foreach (var usageType in usageTypes)
+                    {
+                        <option value="@usageType" selected="@(usageType == selectedUsage)">@usageType</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <label class="form-label" for="altText">Alt Text</label>
+                <input class="form-control" id="altText" name="altText" placeholder="Dashboard screen preview" />
+            </div>
+            <div>
+                <label class="form-label" for="imageFile">Image File</label>
+                <input class="form-control" id="imageFile" name="imageFile" type="file" accept="image/*,.ico" required />
+            </div>
+        </div>
+        <div class="d-flex justify-content-end mt-4">
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-cloud-arrow-up"></i>
+                Upload Image
+            </button>
+        </div>
+    </form>
+</section>
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">Library</span>
+            <h2 class="h4 mb-0">Images</h2>
+        </div>
+        <div class="btn-group">
+            <a class="btn btn-outline-secondary @(selectedUsage == null ? "active" : "")" asp-action="Index">All</a>
+            @foreach (var usageType in usageTypes)
+            {
+                <a class="btn btn-outline-secondary @(selectedUsage == usageType ? "active" : "")" asp-action="Index" asp-route-usageType="@usageType">@usageType</a>
+            }
+        </div>
+    </div>
+
+    <div class="admin-media-grid">
+        @foreach (var asset in Model)
+        {
+            <article class="admin-media-card">
+                <div class="admin-media-thumb">
+                    <img src="@asset.Url" alt="@(asset.AltText ?? asset.Title)" loading="lazy" />
+                </div>
+                <div class="p-3">
+                    <div class="d-flex justify-content-between gap-2">
+                        <strong>@asset.Title</strong>
+                        <span class="badge text-bg-light">@asset.UsageType</span>
+                    </div>
+                    <p class="small text-secondary mb-2">@FormatBytes(asset.FileSizeBytes)</p>
+                    <input class="form-control form-control-sm mb-2" value="@asset.Url" readonly />
+                    <code class="d-block small mb-3">&lt;img src="@asset.Url" alt="@(asset.AltText ?? asset.Title)" class="img-fluid" /&gt;</code>
+                    <form asp-action="Delete" asp-route-id="@asset.Id" method="post" onsubmit="return confirm('Delete this image?');">
+                        @Html.AntiForgeryToken()
+                        <button class="btn btn-outline-danger btn-sm" type="submit">
+                            <i class="bi bi-trash"></i>
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </article>
+        }
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p class="text-secondary mb-0">No images uploaded yet.</p>
+    }
+</section>

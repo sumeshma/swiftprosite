@@ -1,0 +1,75 @@
+@model IEnumerable<SwiftPro.Models.CmsPage>
+
+@{
+    ViewData["Title"] = "Page Management";
+
+    string PublicUrl(string slug) => slug switch
+    {
+        "home" => "/",
+        "about" => "/Company/About",
+        "services" => "/Company/Services",
+        "technologies" => "/Company/Technologies",
+        "portfolio" => "/Company/Portfolio",
+        "corefit" => "/Company/Corefit",
+        "careers" => "/Company/Careers",
+        "contact" => "/Contact",
+        _ => $"/{slug}"
+    };
+}
+
+<section class="admin-panel">
+    <div class="admin-panel-header">
+        <div>
+            <span class="admin-card-kicker">CMS</span>
+            <h2 class="h4 mb-0">Pages</h2>
+        </div>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-lg"></i>
+            Create Page
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table admin-table align-middle">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>Status</th>
+                    <th>Updated</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <strong>@item.Title</strong>
+                            <div class="small text-secondary">@item.MetaTitle</div>
+                        </td>
+                        <td><code>@item.Slug</code></td>
+                        <td>
+                            <span class="badge @(item.IsPublished ? "text-bg-success" : "text-bg-secondary")">
+                                @(item.IsPublished ? "Published" : "Draft")
+                            </span>
+                        </td>
+                        <td>@((item.UpdatedAt ?? item.CreatedAt).ToLocalTime().ToString("MMM d, yyyy"))</td>
+                        <td>
+                            <div class="admin-actions">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-pencil"></i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-outline-secondary btn-sm" href="@PublicUrl(item.Slug)" target="_blank">
+                                    <i class="bi bi-box-arrow-up-right"></i>
+                                    View
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
